@@ -2,3 +2,4 @@
 Example App
 
 I love ☕
+I love Tea
