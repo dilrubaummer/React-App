@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Table from './Table';
+import Form from './Form';
 
 class App extends Component{
 
@@ -10,21 +11,7 @@ class App extends Component{
             {
                 name: 'Charlie',
                 job: 'Janitor',
-            },
-            {
-                name: 'Mac',
-                job: 'Bouncer',
-            },
-
-            {
-                name: 'Dee',
-                job: 'Aspring actress',
-            },
-
-            {
-                name: 'Dennis',
-                job: 'Bartender',
-            },
+            }
         ]
     }
 
@@ -41,12 +28,17 @@ class App extends Component{
         })
     }
 
+    handleSubmit = (profile) => {
+        this.setState({profiles: [...this.state.profiles, profile]})
+    }
+
     render(){
         const {profiles} = this.state
 
         return (
             <div className="container">
                 <Table profilesData = {profiles} removeProfile={this.removeProfile} />
+                <Form handleSubmit={this.handleSubmit} />
             </div>
         )
     }
